@@ -1,25 +1,19 @@
-//
-//  ContentView.swift
-//  SnapEmAll
-//
-//  Created by Ethan Petrie on 9/18/24.
-//
 import SwiftUI
 
 struct ContentView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var signInError: String? = nil
-    @State private var isSignedIn: Bool = false
+    @State private var isSignedIn: Bool = false  // This state is used to track sign-in status
     
     var body: some View {
         NavigationView {
             if isSignedIn {
-                // If signed in, show HomeView
-                HomeView()
+                // Pass the isSignedIn, username, and password state to HomeView
+                HomeView(isSignedIn: $isSignedIn, username: $username, password: $password)
             } else {
                 VStack {
-                    // Sign in message
+                    // Sign-in message
                     Text("Sign In")
                         .font(.largeTitle)
                         .padding()
