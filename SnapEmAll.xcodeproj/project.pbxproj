@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */; };
+		1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */; };
 		AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */; };
 		AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565782C9B2A08004AF61A /* ContentView.swift */; };
 		AE55657B2C9B2A0A004AF61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE55657A2C9B2A0A004AF61A /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AE5565732C9B2A08004AF61A /* SnapEmAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapEmAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapEmAllApp.swift; sourceTree = "<group>"; };
 		AE5565782C9B2A08004AF61A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 				AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */,
 				AE5565782C9B2A08004AF61A /* ContentView.swift */,
 				AE98B9002C9C5FE500B3E373 /* SettingsView.swift */,
+				1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */,
+				1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */,
 				AE55657A2C9B2A0A004AF61A /* Assets.xcassets */,
 				AE55657C2C9B2A0A004AF61A /* Preview Content */,
 			);
@@ -145,6 +151,8 @@
 			files = (
 				AE98B9012C9C5FE500B3E373 /* SettingsView.swift in Sources */,
 				AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */,
+				1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */,
+				1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */,
 				AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
