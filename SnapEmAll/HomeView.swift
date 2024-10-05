@@ -9,11 +9,24 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-
+                
                 Text("Home Page")
                     .font(.system(size: 40, weight: .bold, design: .serif))  // bold font
                     .padding()
-                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)  // Center align
+                
+                // "Snappidex" button
+                NavigationLink(destination: SnappidexView()) {
+                    Text("Snappidex")
+                        .font(.title)  // Make the button text larger
+                        .frame(width: 250, height: 60)  // Increase button size
+                        .background(Color.white)
+                        .foregroundColor(.blue)
+                        .border(Color.blue, width: 2)
+                        .cornerRadius(10)
+                        .padding(.top, 20)
+                }
+                .frame(maxWidth: .infinity, alignment: .center)  // Center the button
                 
                 Spacer()
                 
@@ -39,7 +52,7 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 trailing: NavigationLink(destination: SettingsView()) {
-                    Image(systemName: "gearshape.fill")  // Gear icon for settings
+                    Image(systemName: "gearshape.fill")
                         .imageScale(.large)
                         .foregroundColor(.blue)
                 }
