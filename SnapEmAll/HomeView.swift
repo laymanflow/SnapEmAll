@@ -15,9 +15,9 @@ struct HomeView: View {
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .center)  // Center align
                 
-                // "Snappidex" button
-                NavigationLink(destination: SnappidexView()) {
-                    Text("Snappidex")
+                // "Map" button
+                NavigationLink(destination: MapView()) {
+                    Text("Map")
                         .font(.title)  // Make the button text larger
                         .frame(width: 250, height: 60)  // Increase button size
                         .background(Color.white)

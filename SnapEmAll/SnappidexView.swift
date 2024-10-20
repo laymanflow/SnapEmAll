@@ -3,12 +3,13 @@ import SwiftUI
 struct SnappidexView: View {
     
     @State private var searchInput = ""
+    @Environment(\.dismiss) var dismiss
     
     let animals = [
         "White-tailed Deer",
         "Eastern Gray Squirrel",
         "Red Fox",
-        "Black Bear",
+        "American Black Bear",
         "Eastern Chipmunk",
         "Snowshoe Hare",
         "American Beaver",
@@ -32,6 +33,21 @@ struct SnappidexView: View {
             Text("Snappidex")
                 .font(.largeTitle)
                 .padding()
+            
+            Spacer()
+                        
+            Button(action: {
+                dismiss() // Dismiss the Snappidex view and return to the map
+            }) {
+                Text("Return to Map")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding()
             
             TextField("Search for an animal", text: $searchInput)
                                 .padding(8)
