@@ -12,6 +12,8 @@
 		1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */; };
 		1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */; };
 		1F2F55FE2CC5B442004027EA /* EditSnappidexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */; };
+		288E292A2CC7D4B800F28C35 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 288E29292CC7D4B800F28C35 /* FirebaseAuth */; };
+		288E292E2CC7D52800F28C35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */; };
 		AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */; };
 		AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565782C9B2A08004AF61A /* ContentView.swift */; };
 		AE55657B2C9B2A0A004AF61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE55657A2C9B2A0A004AF61A /* Assets.xcassets */; };
@@ -26,6 +28,9 @@
 		1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSnappidexView.swift; sourceTree = "<group>"; };
+		288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2891A4ED2CC9A9C10020288A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2891A4EE2CC9AC1D0020288A /* SnapEmAll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapEmAll.entitlements; sourceTree = "<group>"; };
 		AE5565732C9B2A08004AF61A /* SnapEmAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapEmAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapEmAllApp.swift; sourceTree = "<group>"; };
 		AE5565782C9B2A08004AF61A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288E292A2CC7D4B800F28C35 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,11 +71,14 @@
 		AE5565752C9B2A08004AF61A /* SnapEmAll */ = {
 			isa = PBXGroup;
 			children = (
+				2891A4EE2CC9AC1D0020288A /* SnapEmAll.entitlements */,
+				2891A4ED2CC9A9C10020288A /* Info.plist */,
 				AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */,
 				AE5565782C9B2A08004AF61A /* ContentView.swift */,
 				AE98B9002C9C5FE500B3E373 /* SettingsView.swift */,
 				1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */,
 				1F0FA7942CB188B3008218FE /* AnimalDescriptionView.swift */,
+				288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */,
 				AEB13A762CC410DD00B3E35B /* MapView.swift */,
 				1F0FA7922CB183ED008218FE /* SnappidexView.swift */,
 				1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */,
@@ -104,6 +113,9 @@
 			dependencies = (
 			);
 			name = SnapEmAll;
+			packageProductDependencies = (
+				288E29292CC7D4B800F28C35 /* FirebaseAuth */,
+			);
 			productName = SnapEmAll;
 			productReference = AE5565732C9B2A08004AF61A /* SnapEmAll.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +163,7 @@
 			files = (
 				AE55657E2C9B2A0A004AF61A /* Preview Assets.xcassets in Resources */,
 				AE55657B2C9B2A0A004AF61A /* Assets.xcassets in Resources */,
+				288E292E2CC7D52800F28C35 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,12 +313,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SnapEmAll/SnapEmAll.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
 				DEVELOPMENT_TEAM = KXFB6UWVWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SnapEmAll/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed to show your position on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -331,12 +346,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SnapEmAll/SnapEmAll.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
 				DEVELOPMENT_TEAM = KXFB6UWVWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SnapEmAll/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed to show your position on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -390,6 +407,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		288E29292CC7D4B800F28C35 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE500A042C9B53E200EDF3A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE55656B2C9B2A08004AF61A /* Project object */;
 }
