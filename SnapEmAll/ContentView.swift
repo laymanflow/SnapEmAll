@@ -63,6 +63,21 @@ struct ContentView: View {
                     }
 
                     Spacer()
+
+                    // Button to bypass login for testing
+                    Button(action: {
+                        self.isSignedIn = true  // Simulate successful sign-in
+                        self.isAdmin = self.phoneNumber == "+1234567890"  // Example admin phone number logic
+                    }) {
+                        Text("Skip Sign-In for Testing")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                    }
                 }
                 .padding()
                 .onAppear {
