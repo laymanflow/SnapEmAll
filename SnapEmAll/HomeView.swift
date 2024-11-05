@@ -6,6 +6,8 @@ struct HomeView: View {
     @Binding var username: String
     @Binding var password: String
     
+    @State private var showCamera = false  // State to control camera presentation
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -17,8 +19,8 @@ struct HomeView: View {
                 // "Map" button
                 NavigationLink(destination: MapView()) {
                     Text("Map")
-                        .font(.title)  // Make the button text larger
-                        .frame(width: 250, height: 60)  // Increase button size
+                        .font(.title)
+                        .frame(width: 250, height: 60)
                         .background(Color.white)
                         .foregroundColor(.blue)
                         .border(Color.blue, width: 2)
@@ -26,6 +28,24 @@ struct HomeView: View {
                         .padding(.top, 20)
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
+                
+                
+                // "Camera" button to take pictures
+                Button(action: {
+                    showCamera = true
+                }) {
+                    Text("Camera")
+                        .font(.title)
+                        .frame(width: 250, height: 60)
+                        .background(Color.white)
+                        .foregroundColor(.orange)
+                        .border(Color.purple, width: 2)
+                        .cornerRadius(10)
+                        .padding(.top, 20)
+                }
+                .sheet(isPresented: $showCamera) {
+                    CameraView()  // Presents the camera view
+                }
                 
                 // Only show the "Edit Snappidex" button if the user is an admin
                 if isAdmin {

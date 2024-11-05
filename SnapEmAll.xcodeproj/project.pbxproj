@@ -12,6 +12,7 @@
 		1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */; };
 		1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */; };
 		1F2F55FE2CC5B442004027EA /* EditSnappidexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */; };
+		1FC923F52CD7E937005DD4A4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC923F42CD7E933005DD4A4 /* CameraView.swift */; };
 		288E292A2CC7D4B800F28C35 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 288E29292CC7D4B800F28C35 /* FirebaseAuth */; };
 		288E292E2CC7D52800F28C35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */; };
 		AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */; };
@@ -28,6 +29,7 @@
 		1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSnappidexView.swift; sourceTree = "<group>"; };
+		1FC923F42CD7E933005DD4A4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2891A4ED2CC9A9C10020288A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2891A4EE2CC9AC1D0020288A /* SnapEmAll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapEmAll.entitlements; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				2891A4ED2CC9A9C10020288A /* Info.plist */,
 				AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */,
 				AE5565782C9B2A08004AF61A /* ContentView.swift */,
+				1FC923F42CD7E933005DD4A4 /* CameraView.swift */,
 				AE98B9002C9C5FE500B3E373 /* SettingsView.swift */,
 				1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */,
 				1F0FA7942CB188B3008218FE /* AnimalDescriptionView.swift */,
@@ -177,6 +180,7 @@
 				AE98B9012C9C5FE500B3E373 /* SettingsView.swift in Sources */,
 				AEB13A772CC410DD00B3E35B /* MapView.swift in Sources */,
 				AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */,
+				1FC923F52CD7E937005DD4A4 /* CameraView.swift in Sources */,
 				1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */,
 				1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */,
 				AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */,
@@ -317,7 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = KXFB6UWVWH;
+				DEVELOPMENT_TEAM = M6WX94NA2Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
@@ -327,7 +331,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,7 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = KXFB6UWVWH;
+				DEVELOPMENT_TEAM = M6WX94NA2Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
@@ -360,7 +364,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

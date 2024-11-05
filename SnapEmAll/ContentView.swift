@@ -17,7 +17,7 @@ struct ContentView: View {
             } else {
                 VStack(spacing: 20) {
                     Text("Phone Number Sign In")
-                        .font(.largeTitle)
+                        .font(.title)
                         .padding()
 
                     // Display phone number or verification code being entered
@@ -67,7 +67,8 @@ struct ContentView: View {
                     // Button to bypass login for testing
                     Button(action: {
                         self.isSignedIn = true  // Simulate successful sign-in
-                        self.isAdmin = self.phoneNumber == "+1234567890"  // Example admin phone number logic
+                        self.isAdmin = self.phoneNumber == "+1234567890"
+                        // Example admin phone number logic
                     }) {
                         Text("Skip Sign-In for Testing")
                             .font(.headline)
