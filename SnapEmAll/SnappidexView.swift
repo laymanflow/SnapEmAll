@@ -71,10 +71,5 @@ struct SnappidexView: View {
 #Preview {
     SnappidexView()
 }
-//
-//  SnappidexView.swift
-//  SnapEmAll
-//
-//  Created by GeoHaun on 10/5/24.
-//
+
 
