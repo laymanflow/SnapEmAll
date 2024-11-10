@@ -24,6 +24,10 @@
 		AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565782C9B2A08004AF61A /* ContentView.swift */; };
 		AE55657B2C9B2A0A004AF61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE55657A2C9B2A0A004AF61A /* Assets.xcassets */; };
 		AE55657E2C9B2A0A004AF61A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE55657D2C9B2A0A004AF61A /* Preview Assets.xcassets */; };
+		AE989B1E2CDDAE86004E6E62 /* LocalAnimalFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE989B1D2CDDAE86004E6E62 /* LocalAnimalFinder.swift */; };
+		AE989B202CDDB324004E6E62 /* SnappidexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE989B1F2CDDB324004E6E62 /* SnappidexViewModel.swift */; };
+		AE989B222CDFC12F004E6E62 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE989B212CDFC12F004E6E62 /* GalleryView.swift */; };
+		AE989B242CDFE75A004E6E62 /* GalleryPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */; };
 		AE98B9012C9C5FE500B3E373 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE98B9002C9C5FE500B3E373 /* SettingsView.swift */; };
 		AEB13A772CC410DD00B3E35B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A762CC410DD00B3E35B /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +52,10 @@
 		AE5565782C9B2A08004AF61A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AE55657A2C9B2A0A004AF61A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE55657D2C9B2A0A004AF61A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE989B1D2CDDAE86004E6E62 /* LocalAnimalFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAnimalFinder.swift; sourceTree = "<group>"; };
+		AE989B1F2CDDB324004E6E62 /* SnappidexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappidexViewModel.swift; sourceTree = "<group>"; };
+		AE989B212CDFC12F004E6E62 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoView.swift; sourceTree = "<group>"; };
 		AE98B9002C9C5FE500B3E373 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AEB13A762CC410DD00B3E35B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +96,8 @@
 				AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */,
 				AE5565782C9B2A08004AF61A /* ContentView.swift */,
 				1FC923F42CD7E933005DD4A4 /* CameraView.swift */,
+				AE989B212CDFC12F004E6E62 /* GalleryView.swift */,
+				AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */,
 				AE98B9002C9C5FE500B3E373 /* SettingsView.swift */,
 				1FC923F62CDAD6F1005DD4A4 /* AccountSettingsView.swift */,
 				1FC923F82CDAD712005DD4A4 /* AccessibilitySettingsView.swift */,
@@ -98,7 +108,9 @@
 				1FC923FE2CDAD775005DD4A4 /* WildlifeDatabaseSettingsView.swift */,
 				288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */,
 				AEB13A762CC410DD00B3E35B /* MapView.swift */,
+				AE989B1D2CDDAE86004E6E62 /* LocalAnimalFinder.swift */,
 				1F0FA7922CB183ED008218FE /* SnappidexView.swift */,
+				AE989B1F2CDDB324004E6E62 /* SnappidexViewModel.swift */,
 				1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */,
 				1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */,
 				AE55657A2C9B2A0A004AF61A /* Assets.xcassets */,
@@ -199,6 +211,10 @@
 				1FC923FF2CDAD785005DD4A4 /* WildlifeDatabaseSettingsView.swift in Sources */,
 				1FC923F52CD7E937005DD4A4 /* CameraView.swift in Sources */,
 				1FC923F72CDAD700005DD4A4 /* AccountSettingsView.swift in Sources */,
+				AE989B242CDFE75A004E6E62 /* GalleryPhotoView.swift in Sources */,
+				AE989B222CDFC12F004E6E62 /* GalleryView.swift in Sources */,
+				AE989B1E2CDDAE86004E6E62 /* LocalAnimalFinder.swift in Sources */,
+				AE989B202CDDB324004E6E62 /* SnappidexViewModel.swift in Sources */,
 				1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */,
 				1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */,
 				AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */,
@@ -338,27 +354,30 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SnapEmAll/SnapEmAll.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = M6WX94NA2Q;
+				DEVELOPMENT_TEAM = KXFB6UWVWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed to show your position on the map.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need your camera in order to identify animals";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cis454.demo.SnapEmAll;
+				PRODUCT_BUNDLE_IDENTIFIER = cis454.SnapEmAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -371,27 +390,30 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SnapEmAll/SnapEmAll.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = M6WX94NA2Q;
+				DEVELOPMENT_TEAM = KXFB6UWVWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed to show your position on the map.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need your camera in order to identify animals";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show it on the map.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cis454.demo.SnapEmAll;
+				PRODUCT_BUNDLE_IDENTIFIER = cis454.SnapEmAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

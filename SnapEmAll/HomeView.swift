@@ -10,6 +10,9 @@ struct HomeView: View {
     @State private var isUserView = false
     private let forestImages = ["forest1", "forest2", "forest3"]  // List of forest images
     @State private var randomForestImage: String = ""
+    
+    @State private var capturedImage: UIImage? // This holds the last captured image
+
 
     init(isSignedIn: Binding<Bool>, isAdmin: Binding<Bool>, username: Binding<String>, password: Binding<String>) {
         _isSignedIn = isSignedIn
@@ -82,7 +85,7 @@ struct HomeView: View {
                             .cornerRadius(10)
                     }
                     .sheet(isPresented: $showCamera) {
-                        CameraView()  // Presents the camera view
+                        CameraView(capturedImage: $capturedImage)  // Presents the camera view
                     }
                     
                     // Edit Snappidex Button (Admin Only)
@@ -96,6 +99,18 @@ struct HomeView: View {
                                 .border(Color.red, width: 2)
                                 .cornerRadius(10)
                         }
+                    }
+                    
+                    //View Gallery Button
+                    NavigationLink(destination: GalleryView()) {
+                        Text("View Gallery")
+                            .font(.title)
+                            .frame(width: 250, height: 60)
+                            .background(Color.white.opacity(0.8))
+                            .foregroundColor(.green)
+                            .border(Color.green, width: 2)
+                            .cornerRadius(10)
+                            
                     }
                     
                     Spacer()

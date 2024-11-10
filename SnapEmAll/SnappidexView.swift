@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SnappidexView: View {
     
+    @StateObject private var viewModel = SnappidexViewModel()
     @State private var searchInput = ""
     @Environment(\.dismiss) var dismiss
     
@@ -18,7 +19,9 @@ struct SnappidexView: View {
         "Eastern Box Turtle"
     ]
     
-    //filter search results based on user input
+    let scientificNames = ["Odocoileus virginianus", "Sciurus carolinensis"] //Examples
+    
+    // Filter search results based on user input
     var searchedAnimals: [String] {
         if searchInput.isEmpty {
             return animals
@@ -49,7 +52,7 @@ struct SnappidexView: View {
             }
             .padding()
             
-            TextField("Search for an animal", text: $searchInput)
+            TextField("Search for an animal", text: $viewModel.searchInput)
                                 .padding(8)
                                 .background(Color(.systemGray5))
                                 .cornerRadius(10)
@@ -64,6 +67,13 @@ struct SnappidexView: View {
             }
         }
         .navigationBarTitle("Snappidex", displayMode: .inline)
+        .onAppear {
+            // Example coordinates; replace these with actual user coordinates
+            let userLatitude = 40.0
+            let userLongitude = -74.0
+            viewModel.loadAnimals(latitude: userLatitude, longitude: userLongitude)
+            viewModel.loadAnimalsWithCommonNames(scientificNames: scientificNames)
+        }
     }
 }
 

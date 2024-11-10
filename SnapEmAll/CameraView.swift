@@ -7,6 +7,10 @@ import SwiftUI
 import UIKit
 
 struct CameraView: UIViewControllerRepresentable {
+    
+    // Variable to store the captured image
+    @Binding var capturedImage: UIImage?
+    
     // Coordinator to manage the camera
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         var parent: CameraView
@@ -20,7 +24,21 @@ struct CameraView: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            // You can handle the captured image here if needed
+            
+            // Retrieve photo taken
+            if let image = info[.originalImage] as? UIImage {
+                // Save the image to the app's documents directory
+                if let imageData = image.jpegData(compressionQuality: 0.8) {
+                    let fileName = UUID().uuidString + ".jpg"
+                    let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+                    
+                    do {
+                        try imageData.write(to: fileURL)
+                    } catch {
+                        print("Error saving image: \(error)")
+                    }
+                }
+            }
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
