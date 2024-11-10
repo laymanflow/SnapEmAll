@@ -82,6 +82,7 @@ struct ContentView: View {
                 }
                 .padding()
                 .onAppear {
+                    
                     // Disable the keyboard globally
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }

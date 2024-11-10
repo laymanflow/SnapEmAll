@@ -95,6 +95,7 @@
 				2891A4ED2CC9A9C10020288A /* Info.plist */,
 				AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */,
 				AE5565782C9B2A08004AF61A /* ContentView.swift */,
+				1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */,
 				1FC923F42CD7E933005DD4A4 /* CameraView.swift */,
 				AE989B212CDFC12F004E6E62 /* GalleryView.swift */,
 				AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */,
@@ -104,7 +105,6 @@
 				1FC923FA2CDAD73D005DD4A4 /* NotificationsSettingsView.swift */,
 				1FC923FC2CDAD75E005DD4A4 /* CameraSettingsView.swift */,
 				1F0FA7942CB188B3008218FE /* AnimalDescriptionView.swift */,
-				1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */,
 				1FC923FE2CDAD775005DD4A4 /* WildlifeDatabaseSettingsView.swift */,
 				288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */,
 				AEB13A762CC410DD00B3E35B /* MapView.swift */,
@@ -358,7 +358,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = KXFB6UWVWH;
+				DEVELOPMENT_TEAM = M6WX94NA2Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
@@ -375,7 +375,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cis454.SnapEmAll;
+				PRODUCT_BUNDLE_IDENTIFIER = cis454.demo.SnapEmAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -394,7 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = KXFB6UWVWH;
+				DEVELOPMENT_TEAM = M6WX94NA2Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
@@ -411,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cis454.SnapEmAll;
+				PRODUCT_BUNDLE_IDENTIFIER = cis454.demo.SnapEmAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

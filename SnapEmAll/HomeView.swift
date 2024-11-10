@@ -7,12 +7,10 @@ struct HomeView: View {
     @Binding var password: String
     
     @State private var showCamera = false
-    @State private var isUserView = false
+    @State private var isUserView = false  // State to track User View
     private let forestImages = ["forest1", "forest2", "forest3"]  // List of forest images
     @State private var randomForestImage: String = ""
-    
     @State private var capturedImage: UIImage? // This holds the last captured image
-
 
     init(isSignedIn: Binding<Bool>, isAdmin: Binding<Bool>, username: Binding<String>, password: Binding<String>) {
         _isSignedIn = isSignedIn
@@ -29,28 +27,55 @@ struct HomeView: View {
                 Image(randomForestImage)
                     .resizable()
                     .scaledToFill()
-                    .blur(radius: 10)  // Reduced blur radius for more clarity
+                    .blur(radius: 10)
                     .ignoresSafeArea()
                 
-                VStack(spacing: 20) {  // Add spacing to improve layout
-                
-                    Text("Home Page")
-                        .font(.system(size: 40, weight: .bold, design: .serif))
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .foregroundColor(.white)
-                    
-                    // "User's View" Toggle for Admins
-                    if isAdmin {
-                        Toggle(isOn: $isUserView) {
-                            Text("User's View")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white)
-                        }
-                        .padding(.horizontal)
+                VStack(spacing: 20) {  
+                    // Title with black outline around the letters
+                    ZStack {
+                        // Outline layers
+                        Text("Home Page")
+                            .font(.system(size: 40, weight: .bold, design: .serif))
+                            .foregroundColor(.black)
+                            .offset(x: -1, y: -1)
+                        
+                        Text("Home Page")
+                            .font(.system(size: 40, weight: .bold, design: .serif))
+                            .foregroundColor(.black)
+                            .offset(x: 1, y: -1)
+                        
+                        Text("Home Page")
+                            .font(.system(size: 40, weight: .bold, design: .serif))
+                            .foregroundColor(.black)
+                            .offset(x: -1, y: 1)
+                        
+                        Text("Home Page")
+                            .font(.system(size: 40, weight: .bold, design: .serif))
+                            .foregroundColor(.black)
+                            .offset(x: 1, y: 1)
+                        
+                        // Main text
+                        Text("Home Page")
+                            .font(.system(size: 40, weight: .bold, design: .serif))
+                            .foregroundColor(.white)
                     }
                     
-                    // Map Button
+                    // Admin/User View Button
+                    if isAdmin {
+                        Button(action: {
+                            isUserView.toggle()
+                        }) {
+                            Text(isUserView ? "User View" : "Admin View")
+                                .font(.system(size: 16, weight: .semibold))
+                                .padding(8)
+                                .background(isUserView ? Color.green.opacity(0.8) : Color.gray.opacity(0.8))
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .padding(.top, -10) // Slightly move it up below the settings
+                    }
+
+                    // Buttons
                     NavigationLink(destination: MapView()) {
                         Text("Map")
                             .font(.title)
@@ -60,8 +85,7 @@ struct HomeView: View {
                             .border(Color.blue, width: 2)
                             .cornerRadius(10)
                     }
-                    
-                    // Snappidex Button
+
                     NavigationLink(destination: SnappidexView()) {
                         Text("Snappidex")
                             .font(.title)
@@ -71,8 +95,7 @@ struct HomeView: View {
                             .border(Color.blue, width: 2)
                             .cornerRadius(10)
                     }
-                    
-                    // Open Camera Button
+
                     Button(action: {
                         showCamera = true
                     }) {
@@ -85,10 +108,9 @@ struct HomeView: View {
                             .cornerRadius(10)
                     }
                     .sheet(isPresented: $showCamera) {
-                        CameraView(capturedImage: $capturedImage)  // Presents the camera view
+                        CameraView(capturedImage: $capturedImage)
                     }
-                    
-                    // Edit Snappidex Button (Admin Only)
+
                     if isAdmin && !isUserView {
                         NavigationLink(destination: EditSnappidexView()) {
                             Text("Edit Snappidex")
@@ -100,8 +122,7 @@ struct HomeView: View {
                                 .cornerRadius(10)
                         }
                     }
-                    
-                    //View Gallery Button
+
                     NavigationLink(destination: GalleryView()) {
                         Text("View Gallery")
                             .font(.title)
@@ -110,12 +131,10 @@ struct HomeView: View {
                             .foregroundColor(.green)
                             .border(Color.green, width: 2)
                             .cornerRadius(10)
-                            
                     }
-                    
+
                     Spacer()
-                    
-                    // Logout Button
+
                     Button(action: {
                         isSignedIn = false
                         username = ""
@@ -130,17 +149,17 @@ struct HomeView: View {
                             .cornerRadius(10)
                             .padding(.horizontal)
                     }
-                    
-                    Spacer()
                 }
-                .padding(.top, 20)  // Added padding to ensure content is not too close to the top
+                .padding(.top, 20)  // Added padding for proper layout
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                trailing: NavigationLink(destination: SettingsView()) {
-                    Image(systemName: "gearshape.fill")
-                        .imageScale(.large)
-                        .foregroundColor(.blue)
+                trailing: VStack {
+                    NavigationLink(destination: SettingsView()) {
+                        Image(systemName: "gearshape.fill")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                    }
                 }
             )
         }
