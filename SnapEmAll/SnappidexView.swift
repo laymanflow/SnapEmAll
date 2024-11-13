@@ -4,6 +4,7 @@ struct SnappidexView: View {
     
     @StateObject private var viewModel = SnappidexViewModel()
     @State private var searchInput = ""
+    @State private var selectedSegment = "Discovered";
     @Environment(\.dismiss) var dismiss
     
     let animals = [
@@ -21,14 +22,16 @@ struct SnappidexView: View {
     
     let scientificNames = ["Odocoileus virginianus", "Sciurus carolinensis"] //Examples
     
+    let discoveredAnimals: [String]
+    
+    init(discoveredAnimals: [String] = []) { // Provide a default empty array
+        self.discoveredAnimals = discoveredAnimals
+    }
+    
     // Filter search results based on user input
-    var searchedAnimals: [String] {
-        if searchInput.isEmpty {
-            return animals
-        } 
-        else {
-            return animals.filter {$0.lowercased().contains(searchInput.lowercased())}
-        }
+    var filteredAnimals: [String] {
+        let currentList = selectedSegment == "Discovered" ? discoveredAnimals : animals.filter { !discoveredAnimals.contains($0) }
+        return searchInput.isEmpty ? currentList : currentList.filter { $0.lowercased().contains(searchInput.lowercased()) }
     }
     
     var body: some View {
@@ -52,13 +55,23 @@ struct SnappidexView: View {
             }
             .padding()
             
+            // Toggle button to swap between discovered and undiscovered animals
+            Picker("Select", selection: $selectedSegment) {
+                Text("Discovered").tag("Discovered")
+                Text("Undiscovered").tag("Undiscovered")
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            
+            Spacer()
+            
             TextField("Search for an animal", text: $viewModel.searchInput)
                                 .padding(8)
                                 .background(Color(.systemGray5))
                                 .cornerRadius(10)
                                 .padding(.horizontal)
             
-            List(searchedAnimals, id: \.self) { animal in
+            List(filteredAnimals, id: \.self) { animal in
                 NavigationLink(destination: AnimalDescriptionView(animalName: animal)) {
                     Text(animal)
                         .font(.headline)
@@ -79,7 +92,7 @@ struct SnappidexView: View {
 
 
 #Preview {
-    SnappidexView()
+    SnappidexView(discoveredAnimals: ["Snowshoe Hare", "Bald Eagle"])
 }
 
 

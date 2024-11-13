@@ -50,6 +50,10 @@ struct GalleryView: View {
     @State private var galleryItems: [GalleryItem] = []
     @State private var selectedGalleryItem: GalleryItem?
     
+    var discoveredAnimalNames: [String] {
+            galleryItems.map { $0.animalName }
+    }
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(), GridItem()]) {
@@ -73,6 +77,10 @@ struct GalleryView: View {
         .sheet(item: $selectedGalleryItem) { item in
             GalleryPhotoView(galleryItem: item)
         }
+        .navigationTitle("Gallery")
+        .navigationBarItems(trailing: NavigationLink("Go to Snappidex") {
+            SnappidexView(discoveredAnimals: discoveredAnimalNames)
+        })
     }
     
     func loadGalleryItems() {
@@ -80,6 +88,10 @@ struct GalleryView: View {
         
         // Load actual photos and assign a placeholder name "Unknown Animal" if not identified
         let realPhotos = loadImages()
+        
+        // Examples for testing
+        items.append(GalleryItem(image: UIImage(systemName: "hare.fill")!, animalName: "Snowshoe Hare"))
+        items.append(GalleryItem(image: UIImage(systemName: "bird.fill")!, animalName: "Bald eagle"))
         for photo in realPhotos {
             items.append(GalleryItem(image: photo, animalName: "Unknown Animal"))
         }
