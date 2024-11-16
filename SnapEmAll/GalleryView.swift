@@ -25,21 +25,6 @@ func loadImages() -> [UIImage] {
     return images
 }
 
-func addDummyImage() {
-    if let dummyImage = UIImage(systemName: "photo") { // Using a system image as a placeholder
-        if let imageData = dummyImage.jpegData(compressionQuality: 0.8) {
-            let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                .appendingPathComponent("dummyImage.jpg")
-            
-            do {
-                try imageData.write(to: fileURL)
-            } catch {
-                print("Error saving dummy image: \(error)")
-            }
-        }
-    }
-}
-
 struct GalleryItem: Identifiable {
     let id = UUID()
     let image: UIImage
@@ -47,17 +32,18 @@ struct GalleryItem: Identifiable {
 }
 
 struct GalleryView: View {
-    @State private var galleryItems: [GalleryItem] = []
+    //@State private var galleryItems: [GalleryItem] = []
     @State private var selectedGalleryItem: GalleryItem?
+    @ObservedObject var galleryViewModel: GalleryViewModel
     
     var discoveredAnimalNames: [String] {
-            galleryItems.map { $0.animalName }
+        galleryViewModel.galleryItems.map { $0.animalName }
     }
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(), GridItem()]) {
-                ForEach(galleryItems) { item in
+                ForEach(galleryViewModel.galleryItems) { item in
                     VStack {
                         Image(uiImage: item.image)
                             .resizable()
@@ -91,26 +77,29 @@ struct GalleryView: View {
         
         // Examples for testing
         items.append(GalleryItem(image: UIImage(systemName: "hare.fill")!, animalName: "Snowshoe Hare"))
-        items.append(GalleryItem(image: UIImage(systemName: "bird.fill")!, animalName: "Bald eagle"))
+        items.append(GalleryItem(image: UIImage(systemName: "bird.fill")!, animalName: "Bald Eagle"))
         for photo in realPhotos {
             items.append(GalleryItem(image: photo, animalName: "Unknown Animal"))
         }
         
         // Populate `galleryItems` with actual images and animal names.
-        if galleryItems.isEmpty {
-            galleryItems = [
+        if galleryViewModel.galleryItems.isEmpty {
+            galleryViewModel.galleryItems = [
                 GalleryItem(image: UIImage(systemName: "photo")!, animalName: "Snowshoe Hare"),
                 GalleryItem(image: UIImage(systemName: "photo")!, animalName: "Bald Eagle")
             ]
         }
         
         // Update the gallery items with both real and dummy data
-        galleryItems = items
+        galleryViewModel.galleryItems = items
     }
 }
 
-
-
 #Preview {
-    GalleryView()
+    let sampleGalleryViewModel = GalleryViewModel()
+    sampleGalleryViewModel.galleryItems = [
+        GalleryItem(image: UIImage(systemName: "hare.fill")!, animalName: "Snowshoe Hare"),
+        GalleryItem(image: UIImage(systemName: "bird.fill")!, animalName: "Bald Eagle")
+    ]
+    return GalleryView(galleryViewModel: sampleGalleryViewModel)
 }

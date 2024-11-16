@@ -14,34 +14,21 @@ class SnappidexViewModel: ObservableObject {
         }
     }
     
-    // Function to fetch animals from the GBIF API based on user's location
-    func loadAnimals(latitude: Double, longitude: Double) {
-        fetchLocalAnimals(userLat: latitude, userLong: longitude) { [weak self] localAnimals in
+    // Load animals from the JSON file
+    func loadAnimalsFromJSON() {
+        guard let url = Bundle.main.url(forResource: "animals", withExtension: "json") else {
+            print("JSON file not found")
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: url)
+            let decodedAnimals = try JSONDecoder().decode([String].self, from: data)
             DispatchQueue.main.async {
-                self?.animals = localAnimals.map { $0.sciName }
+                self.animals = decodedAnimals
             }
-        }
-    }
-    
-    func loadAnimalsWithCommonNames(scientificNames: [String]) {
-        var commonNames: [String] = []
-        let group = DispatchGroup() // To wait for all async tasks
-        
-        for scientificName in scientificNames {
-            group.enter()
-            fetchCommonName(scientificName: scientificName) { commonName in
-                if let commonName = commonName {
-                    commonNames.append(commonName)
-                } else {
-                    commonNames.append(scientificName) // Fallback if common name isn't found
-                }
-                group.leave()
-            }
-        }
-        
-        // Update animals list once all common names are fetched
-        group.notify(queue: .main) {
-            self.animals = commonNames
+        } catch {
+            print("Error decoding JSON: \(error)")
         }
     }
 }

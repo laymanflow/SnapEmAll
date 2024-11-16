@@ -3,37 +3,21 @@ import SwiftUI
 struct SnappidexView: View {
     
     @StateObject private var viewModel = SnappidexViewModel()
-    @State private var searchInput = ""
     @State private var selectedSegment = "Discovered";
     @Environment(\.dismiss) var dismiss
     
-    let animals = [
-        "White-tailed Deer",
-        "Eastern Gray Squirrel",
-        "Red Fox",
-        "American Black Bear",
-        "Eastern Chipmunk",
-        "Snowshoe Hare",
-        "American Beaver",
-        "Bald Eagle",
-        "Wild Turkey",
-        "Eastern Box Turtle"
-    ]
-    
-    let scientificNames = ["Odocoileus virginianus", "Sciurus carolinensis"] //Examples
-    
     let discoveredAnimals: [String]
+    
+    // Filter search results based on user input
+    var filteredAnimals: [String] {
+        let currentList = selectedSegment == "Discovered" ? discoveredAnimals : viewModel.animals.filter { !discoveredAnimals.contains($0) }
+        return viewModel.searchInput.isEmpty ? currentList : currentList.filter { $0.lowercased().contains(viewModel.searchInput.lowercased()) }
+    }
     
     init(discoveredAnimals: [String] = []) { // Provide a default empty array
         self.discoveredAnimals = discoveredAnimals
     }
-    
-    // Filter search results based on user input
-    var filteredAnimals: [String] {
-        let currentList = selectedSegment == "Discovered" ? discoveredAnimals : animals.filter { !discoveredAnimals.contains($0) }
-        return searchInput.isEmpty ? currentList : currentList.filter { $0.lowercased().contains(searchInput.lowercased()) }
-    }
-    
+        
     var body: some View {
         VStack {
             Text("Snappidex")
@@ -41,19 +25,6 @@ struct SnappidexView: View {
                 .padding()
             
             Spacer()
-                        
-            Button(action: {
-                dismiss() // Dismiss the Snappidex view and return to the map
-            }) {
-                Text("Return to Map")
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .padding()
             
             // Toggle button to swap between discovered and undiscovered animals
             Picker("Select", selection: $selectedSegment) {
@@ -79,13 +50,8 @@ struct SnappidexView: View {
                 }
             }
         }
-        .navigationBarTitle("Snappidex", displayMode: .inline)
         .onAppear {
-            // Example coordinates; replace these with actual user coordinates
-            let userLatitude = 40.0
-            let userLongitude = -74.0
-            viewModel.loadAnimals(latitude: userLatitude, longitude: userLongitude)
-            viewModel.loadAnimalsWithCommonNames(scientificNames: scientificNames)
+            viewModel.loadAnimalsFromJSON()
         }
     }
 }

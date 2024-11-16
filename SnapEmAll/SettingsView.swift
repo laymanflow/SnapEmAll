@@ -25,9 +25,6 @@ struct SettingsView: View {
             
             NavigationLink("Camera", destination: CameraSettingsView())
                 .buttonStyle(SettingsButton())
-            
-            NavigationLink("Wildlife Databases", destination: WildlifeDatabaseSettingsView())
-                .buttonStyle(SettingsButton())
         }
         .padding()
         Spacer()
