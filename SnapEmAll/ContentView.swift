@@ -20,7 +20,6 @@ struct ContentView: View {
                         .font(.title)
                         .padding()
 
-                    // Display phone number or verification code being entered
                     Text(isEnteringCode ? verificationCode : phoneNumber)
                         .font(.title)
                         .padding()
@@ -28,10 +27,8 @@ struct ContentView: View {
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
 
-                    // Display the keypad with numbers and backspace
                     KeypadView(onKeyPress: handleKeyPress)
 
-                    // Action buttons for send/verify code
                     if verificationID != nil {
                         Button(action: verifyCode) {
                             Text("Verify Code")
@@ -64,11 +61,9 @@ struct ContentView: View {
 
                     Spacer()
 
-                    // Button to bypass login for testing
                     Button(action: {
-                        self.isSignedIn = true  // Simulate successful sign-in
+                        self.isSignedIn = true
                         self.isAdmin = self.phoneNumber == "+1234567890"
-                        // Example admin phone number logic
                     }) {
                         Text("Skip Sign-In for Testing")
                             .font(.headline)
@@ -82,15 +77,12 @@ struct ContentView: View {
                 }
                 .padding()
                 .onAppear {
-                    
-                    // Disable the keyboard globally
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
             }
         }
     }
 
-    // Custom keypad input handler
     func handleKeyPress(key: String) {
         if isEnteringCode {
             if key == "⌫" {
@@ -111,7 +103,6 @@ struct ContentView: View {
         }
     }
 
-    // Send the verification code to the entered phone number
     func sendCode() {
         guard !phoneNumber.isEmpty else {
             signInError = "Please enter your phone number."
@@ -119,7 +110,11 @@ struct ContentView: View {
         }
         
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
-            if let error = error {
+            if let error = error as NSError? {
+                print("Error occurred while sending code: \(error)")
+                print("Error code: \(error.code)")
+                print("Error domain: \(error.domain)")
+                print("Error userInfo: \(error.userInfo)")
                 self.signInError = error.localizedDescription
                 return
             }
@@ -129,7 +124,6 @@ struct ContentView: View {
         }
     }
 
-    // Verify the entered code
     func verifyCode() {
         guard let verificationID = verificationID else {
             signInError = "No verification ID found. Please request a new code."
@@ -139,16 +133,29 @@ struct ContentView: View {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
         
         Auth.auth().signIn(with: credential) { authResult, error in
-            if let error = error {
+            if let error = error as NSError? {
+                print("Error occurred while verifying code: \(error)")
+                print("Error code: \(error.code)")
+                print("Error domain: \(error.domain)")
+                print("Error userInfo: \(error.userInfo)")
                 self.signInError = error.localizedDescription
                 return
             }
+            
+            // Print the UID to the console
+            if let uid = authResult?.user.uid {
+                print("User successfully signed in. UID: \(uid)")
+            } else {
+                print("Error: Unable to retrieve UID after login.")
+            }
 
-            self.isAdmin = self.phoneNumber == "+1234567890"  // Example admin phone number
+            // Update the state
+            self.isAdmin = self.phoneNumber == "+1234567890"
             self.isSignedIn = true
             self.signInError = nil
         }
     }
+
 }
 
 struct KeypadView: View {
@@ -181,8 +188,4 @@ struct KeypadView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }

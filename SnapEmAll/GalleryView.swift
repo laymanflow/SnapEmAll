@@ -1,105 +1,121 @@
-//
-//  GalleryView.swift
-//  SnapEmAll
-//
-//  Created by Ethan Petrie on 11/9/24.
-//
-
 import SwiftUI
-
-func loadImages() -> [UIImage] {
-    var images = [UIImage]()
-    let fileManager = FileManager.default
-    let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    
-    do {
-        let imageFiles = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-        for url in imageFiles {
-            if let image = UIImage(contentsOfFile: url.path) {
-                images.append(image)
-            }
-        }
-    } catch {
-        print("Error loading images: \(error)")
-    }
-    return images
-}
+import FirebaseAuth
+import FirebaseFirestore
 
 struct GalleryItem: Identifiable {
     let id = UUID()
     let image: UIImage
     let animalName: String
+    let description: String?
 }
 
 struct GalleryView: View {
-    //@State private var galleryItems: [GalleryItem] = []
+    @State private var galleryItems: [GalleryItem] = []
     @State private var selectedGalleryItem: GalleryItem?
+    @State private var isLoading: Bool = true
+    @State private var loadError: String?
     @ObservedObject var galleryViewModel: GalleryViewModel
-    
+
     var discoveredAnimalNames: [String] {
-        galleryViewModel.galleryItems.map { $0.animalName }
+        galleryItems.map { $0.animalName }
     }
-    
+
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(), GridItem()]) {
-                ForEach(galleryViewModel.galleryItems) { item in
-                    VStack {
-                        Image(uiImage: item.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .cornerRadius(8)
-                            .onTapGesture {
-                                selectedGalleryItem = item
+        NavigationView {
+            VStack {
+                if isLoading {
+                    ProgressView("Loading...")
+                } else if let error = loadError {
+                    Text("Error: \(error)")
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(), GridItem()]) {
+                            ForEach(galleryItems) { item in
+                                VStack {
+                                    Image(uiImage: item.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 100)
+                                        .cornerRadius(8)
+                                        .onTapGesture {
+                                            selectedGalleryItem = item
+                                        }
+                                    Text(item.animalName)
+                                        .font(.caption)
+                                        .multilineTextAlignment(.center)
+                                }
                             }
+                        }
                     }
                 }
             }
+            .onAppear {
+                fetchGalleryDataForUser()
+            }
+            .sheet(item: $selectedGalleryItem) { item in
+                GalleryPhotoView(galleryItem: item)
+            }
+            .navigationTitle("Gallery")
+            .navigationBarItems(trailing: NavigationLink("Go to Snappidex") {
+                SnappidexView(discoveredAnimals: discoveredAnimalNames)
+            })
         }
-        .onAppear {
-            loadGalleryItems()
-        }
-        .sheet(item: $selectedGalleryItem) { item in
-            GalleryPhotoView(galleryItem: item)
-        }
-        .navigationTitle("Gallery")
-        .navigationBarItems(trailing: NavigationLink("Go to Snappidex") {
-            SnappidexView(discoveredAnimals: discoveredAnimalNames)
-        })
     }
-    
-    func loadGalleryItems() {
-        var items: [GalleryItem] = []
-        
-        // Load actual photos and assign a placeholder name "Unknown Animal" if not identified
-        let realPhotos = loadImages()
-        
-        // Examples for testing
-        items.append(GalleryItem(image: UIImage(systemName: "hare.fill")!, animalName: "Snowshoe Hare"))
-        items.append(GalleryItem(image: UIImage(systemName: "bird.fill")!, animalName: "Bald Eagle"))
-        for photo in realPhotos {
-            items.append(GalleryItem(image: photo, animalName: "Unknown Animal"))
-        }
-        
-        // Populate `galleryItems` with actual images and animal names.
-        if galleryViewModel.galleryItems.isEmpty {
-            galleryViewModel.galleryItems = [
-                GalleryItem(image: UIImage(systemName: "photo")!, animalName: "Snowshoe Hare"),
-                GalleryItem(image: UIImage(systemName: "photo")!, animalName: "Bald Eagle")
-            ]
-        }
-        
-        // Update the gallery items with both real and dummy data
-        galleryViewModel.galleryItems = items
-    }
-}
 
-#Preview {
-    let sampleGalleryViewModel = GalleryViewModel()
-    sampleGalleryViewModel.galleryItems = [
-        GalleryItem(image: UIImage(systemName: "hare.fill")!, animalName: "Snowshoe Hare"),
-        GalleryItem(image: UIImage(systemName: "bird.fill")!, animalName: "Bald Eagle")
-    ]
-    return GalleryView(galleryViewModel: sampleGalleryViewModel)
+    /// Fetch data from Firestore for the logged-in user
+    func fetchGalleryDataForUser() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            loadError = "User not logged in."
+            isLoading = false
+            return
+        }
+
+        let db = Firestore.firestore()
+        let userGalleryPath = "\(uid)"
+        isLoading = true
+        loadError = nil
+
+        db.collection(userGalleryPath).getDocuments { snapshot, error in
+            isLoading = false
+
+            if let error = error {
+                print("Error fetching user-specific gallery data: \(error.localizedDescription)")
+                loadError = error.localizedDescription
+                return
+            }
+
+            guard let documents = snapshot?.documents else {
+                print("No documents found in the user's gallery.")
+                loadError = "No data found."
+                return
+            }
+
+            var fetchedItems: [GalleryItem] = []
+
+            for document in documents {
+                let data = document.data()
+                guard
+                    let base64String = data["imageData"] as? String,
+                    let animalName = data["animalName"] as? String,
+                    let imageData = Data(base64Encoded: base64String),
+                    let image = UIImage(data: imageData)
+                else {
+                    print("Skipping invalid document: \(document.documentID)")
+                    continue
+                }
+
+                let description = data["description"] as? String
+                let galleryItem = GalleryItem(image: image, animalName: animalName, description: description)
+                fetchedItems.append(galleryItem)
+            }
+
+            self.galleryItems = fetchedItems
+            if galleryItems.isEmpty {
+                loadError = "No valid items found."
+            }
+        }
+    }
 }

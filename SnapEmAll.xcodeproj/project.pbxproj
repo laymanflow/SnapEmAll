@@ -22,6 +22,10 @@
 		AE2D74FC2CE7E08200992958 /* animals.json in Resources */ = {isa = PBXBuildFile; fileRef = AE2D74FB2CE7E08200992958 /* animals.json */; };
 		AE2D74FE2CE8308300992958 /* LogAnimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D74FD2CE8308300992958 /* LogAnimalView.swift */; };
 		AE2D75002CE8393F00992958 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D74FF2CE8393F00992958 /* GalleryViewModel.swift */; };
+		AE2D75022CE8F0FC00992958 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = AE2D75012CE8F0FC00992958 /* FirebaseDatabase */; };
+		AE2D75042CE8F0FC00992958 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AE2D75032CE8F0FC00992958 /* FirebaseFirestore */; };
+		AE2D75062CE8F0FC00992958 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AE2D75052CE8F0FC00992958 /* FirebaseStorage */; };
+		AE2D75082CE8F0FC00992958 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AE2D75072CE8F0FC00992958 /* FirebaseStorageCombine-Community */; };
 		AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565762C9B2A08004AF61A /* SnapEmAllApp.swift */; };
 		AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5565782C9B2A08004AF61A /* ContentView.swift */; };
 		AE55657B2C9B2A0A004AF61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE55657A2C9B2A0A004AF61A /* Assets.xcassets */; };
@@ -67,7 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2D75022CE8F0FC00992958 /* FirebaseDatabase in Frameworks */,
+				AE2D75062CE8F0FC00992958 /* FirebaseStorage in Frameworks */,
+				AE2D75082CE8F0FC00992958 /* FirebaseStorageCombine-Community in Frameworks */,
 				288E292A2CC7D4B800F28C35 /* FirebaseAuth in Frameworks */,
+				AE2D75042CE8F0FC00992958 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +156,10 @@
 			name = SnapEmAll;
 			packageProductDependencies = (
 				288E29292CC7D4B800F28C35 /* FirebaseAuth */,
+				AE2D75012CE8F0FC00992958 /* FirebaseDatabase */,
+				AE2D75032CE8F0FC00992958 /* FirebaseFirestore */,
+				AE2D75052CE8F0FC00992958 /* FirebaseStorage */,
+				AE2D75072CE8F0FC00992958 /* FirebaseStorageCombine-Community */,
 			);
 			productName = SnapEmAll;
 			productReference = AE5565732C9B2A08004AF61A /* SnapEmAll.app */;
@@ -463,6 +475,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE500A042C9B53E200EDF3A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		AE2D75012CE8F0FC00992958 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE500A042C9B53E200EDF3A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		AE2D75032CE8F0FC00992958 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE500A042C9B53E200EDF3A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		AE2D75052CE8F0FC00992958 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE500A042C9B53E200EDF3A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		AE2D75072CE8F0FC00992958 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE500A042C9B53E200EDF3A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
