@@ -4,12 +4,15 @@ import SwiftUI
 struct LogAnimalView: View {
     @State private var searchInput: String = ""
     @State private var selectedAnimal: String? = nil
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss // Handles dismissing the view
 
     let capturedImage: UIImage
     @ObservedObject var viewModel: SnappidexViewModel
     @ObservedObject var galleryViewModel: GalleryViewModel
     var onComplete: (String) -> Void
+    var dismissParent: (() -> Void)?
+
+    @FocusState private var isSearchBarFocused: Bool // Add focus state
 
     var filteredAnimals: [String] {
         viewModel.animals.filter { searchInput.isEmpty || $0.lowercased().contains(searchInput.lowercased()) }
@@ -33,6 +36,7 @@ struct LogAnimalView: View {
                 .background(Color(.systemGray5))
                 .cornerRadius(10)
                 .padding(.horizontal)
+                .focused($isSearchBarFocused) // Attach the focus state
 
             List(filteredAnimals, id: \.self) { animal in
                 Button(action: {
@@ -46,7 +50,8 @@ struct LogAnimalView: View {
             if let selectedAnimal = selectedAnimal {
                 Button(action: {
                     onComplete(selectedAnimal)
-                    dismiss()
+                    dismiss() // Dismiss this view
+                    dismissParent?()
                 }) {
                     Text("Assign \(selectedAnimal)")
                         .font(.headline)
@@ -63,14 +68,9 @@ struct LogAnimalView: View {
         }
         .onAppear {
             viewModel.loadAnimalsFromJSON()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isSearchBarFocused = true // Automatically focus on appear
+            }
         }
     }
 }
-
-
-//
-//  LogAnimalView.swift
-//  SnapEmAll
-//
-//  Created by Ethan Petrie on 11/15/24.
-//
