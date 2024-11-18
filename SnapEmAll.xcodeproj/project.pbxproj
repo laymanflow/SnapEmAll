@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F06D37B2CEAE77F0022B098 /* EditAnimalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06D37A2CEAE77F0022B098 /* EditAnimalsView.swift */; };
+		1F06D37F2CEAE8EF0022B098 /* InspectUserGalleriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06D37E2CEAE8EF0022B098 /* InspectUserGalleriesView.swift */; };
 		1F0FA7932CB18410008218FE /* SnappidexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FA7922CB183ED008218FE /* SnappidexView.swift */; };
 		1F0FA7952CB188D3008218FE /* AnimalDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FA7942CB188B3008218FE /* AnimalDescriptionView.swift */; };
-		1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */; };
 		1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */; };
 		1F2F55FE2CC5B442004027EA /* EditSnappidexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */; };
 		1FC923F52CD7E937005DD4A4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC923F42CD7E933005DD4A4 /* CameraView.swift */; };
@@ -34,13 +35,13 @@
 		AE989B222CDFC12F004E6E62 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE989B212CDFC12F004E6E62 /* GalleryView.swift */; };
 		AE989B242CDFE75A004E6E62 /* GalleryPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */; };
 		AE98B9012C9C5FE500B3E373 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE98B9002C9C5FE500B3E373 /* SettingsView.swift */; };
-		AEB13A772CC410DD00B3E35B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A762CC410DD00B3E35B /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F06D37A2CEAE77F0022B098 /* EditAnimalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAnimalsView.swift; sourceTree = "<group>"; };
+		1F06D37E2CEAE8EF0022B098 /* InspectUserGalleriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectUserGalleriesView.swift; sourceTree = "<group>"; };
 		1F0FA7922CB183ED008218FE /* SnappidexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappidexView.swift; sourceTree = "<group>"; };
 		1F0FA7942CB188B3008218FE /* AnimalDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDescriptionView.swift; sourceTree = "<group>"; };
-		1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		1F29E4AD2C9CAC2C000B3434 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSnappidexView.swift; sourceTree = "<group>"; };
 		1FC923F42CD7E933005DD4A4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		AE989B212CDFC12F004E6E62 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoView.swift; sourceTree = "<group>"; };
 		AE98B9002C9C5FE500B3E373 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		AEB13A762CC410DD00B3E35B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +111,7 @@
 				AE2D74FF2CE8393F00992958 /* GalleryViewModel.swift */,
 				AE2D74FD2CE8308300992958 /* LogAnimalView.swift */,
 				AE989B232CDFE75A004E6E62 /* GalleryPhotoView.swift */,
+				1F06D37A2CEAE77F0022B098 /* EditAnimalsView.swift */,
 				AE98B9002C9C5FE500B3E373 /* SettingsView.swift */,
 				1FC923F62CDAD6F1005DD4A4 /* AccountSettingsView.swift */,
 				1FC923F82CDAD712005DD4A4 /* AccessibilitySettingsView.swift */,
@@ -118,12 +119,11 @@
 				1FC923FC2CDAD75E005DD4A4 /* CameraSettingsView.swift */,
 				1F0FA7942CB188B3008218FE /* AnimalDescriptionView.swift */,
 				288E292D2CC7D52800F28C35 /* GoogleService-Info.plist */,
-				AEB13A762CC410DD00B3E35B /* MapView.swift */,
 				1F0FA7922CB183ED008218FE /* SnappidexView.swift */,
 				AE989B1F2CDDB324004E6E62 /* SnappidexViewModel.swift */,
 				1F2F55FD2CC5B437004027EA /* EditSnappidexView.swift */,
 				AE2D74FB2CE7E08200992958 /* animals.json */,
-				1F29E4AB2C9CAB3D000B3434 /* CreateAccountView.swift */,
+				1F06D37E2CEAE8EF0022B098 /* InspectUserGalleriesView.swift */,
 				AE55657A2C9B2A0A004AF61A /* Assets.xcassets */,
 				AE55657C2C9B2A0A004AF61A /* Preview Content */,
 			);
@@ -221,15 +221,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE98B9012C9C5FE500B3E373 /* SettingsView.swift in Sources */,
-				AEB13A772CC410DD00B3E35B /* MapView.swift in Sources */,
 				1FC923FD2CDAD764005DD4A4 /* CameraSettingsView.swift in Sources */,
 				AE5565792C9B2A08004AF61A /* ContentView.swift in Sources */,
 				1FC923F52CD7E937005DD4A4 /* CameraView.swift in Sources */,
+				1F06D37F2CEAE8EF0022B098 /* InspectUserGalleriesView.swift in Sources */,
 				1FC923F72CDAD700005DD4A4 /* AccountSettingsView.swift in Sources */,
 				AE989B242CDFE75A004E6E62 /* GalleryPhotoView.swift in Sources */,
 				AE989B222CDFC12F004E6E62 /* GalleryView.swift in Sources */,
 				AE989B202CDDB324004E6E62 /* SnappidexViewModel.swift in Sources */,
-				1F29E4AC2C9CAB46000B3434 /* CreateAccountView.swift in Sources */,
 				AE2D75002CE8393F00992958 /* GalleryViewModel.swift in Sources */,
 				1F29E4AE2C9CAC38000B3434 /* HomeView.swift in Sources */,
 				AE5565772C9B2A08004AF61A /* SnapEmAllApp.swift in Sources */,
@@ -238,6 +237,7 @@
 				1F0FA7932CB18410008218FE /* SnappidexView.swift in Sources */,
 				1FC923F92CDAD72C005DD4A4 /* AccessibilitySettingsView.swift in Sources */,
 				1F2F55FE2CC5B442004027EA /* EditSnappidexView.swift in Sources */,
+				1F06D37B2CEAE77F0022B098 /* EditAnimalsView.swift in Sources */,
 				1FC923FB2CDAD74D005DD4A4 /* NotificationsSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +374,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = M6WX94NA2Q;
+				DEVELOPMENT_TEAM = KXFB6UWVWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
@@ -410,7 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SnapEmAll/Preview Content\"";
-				DEVELOPMENT_TEAM = M6WX94NA2Q;
+				DEVELOPMENT_TEAM = KXFB6UWVWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SnapEmAll/Info.plist;
